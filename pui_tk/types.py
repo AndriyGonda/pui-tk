@@ -11,3 +11,4 @@ class EventType(Enum):
     RIGHT_BUTTON_CLICK = '<Button-3>'
     MIDDLE_BUTTON_CLICK = '<Button-2>'
     CONFIGURE = '<Configure>'
+    KEY_RELEASE = '<KeyRelease>'

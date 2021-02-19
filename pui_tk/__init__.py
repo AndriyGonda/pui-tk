@@ -1,6 +1,9 @@
 from tkinter import Tk, Widget, Event
 from .types import EventType
 from typing import Callable
+from tkinter.ttk import Style
+from _tkinter import TclError
+
 
 
 class Application(object):
@@ -12,6 +15,11 @@ class Application(object):
     def __init__(self, title='Application'):
         self.tk_ref: Tk = Tk()
         self.title = title
+        self.style = Style()
+        try:
+            self.style.theme_use('clam')
+        except TclError:
+            self.style.theme_use('default')
 
     @property
     def title(self) -> str:
@@ -193,8 +201,10 @@ class Application(object):
         Decorator for bind_event function
         :param event_type: EventType or str
         """
+
         def _decorator(callback):
             self.bind_event(event_type, callback)
+
         return _decorator
 
     def run(self):
