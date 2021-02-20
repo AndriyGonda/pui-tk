@@ -1,5 +1,5 @@
 from tkinter.ttk import Label as _Label
-from . import UiWidget
+from .ui_widget import UiWidget
 
 
 class Label(UiWidget):
@@ -8,4 +8,9 @@ class Label(UiWidget):
     @property
     def text(self) -> str:
         return self.tk_ref['text']
+
+    @text.setter
+    def text(self, value: str):
+        self.tk_ref['text'] = value
+
 

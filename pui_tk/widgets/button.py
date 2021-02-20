@@ -1,5 +1,5 @@
 from tkinter.ttk import Button as _Button
-from . import UiWidget
+from .ui_widget import UiWidget
 
 
 class Button(UiWidget):

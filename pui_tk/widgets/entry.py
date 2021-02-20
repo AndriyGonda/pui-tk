@@ -1,6 +1,6 @@
 from tkinter.ttk import Entry as _Entry
 from tkinter import StringVar
-from . import UiWidget
+from .ui_widget import UiWidget
 
 
 class Entry(UiWidget):

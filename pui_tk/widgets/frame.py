@@ -1,5 +1,5 @@
 from tkinter.ttk import Frame as _Frame
-from . import UiWidget
+from .ui_widget import UiWidget
 
 
 class Frame(UiWidget):

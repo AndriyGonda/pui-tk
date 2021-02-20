@@ -1,6 +1,6 @@
 from tkinter.ttk import Checkbutton as _Checkbox
 from tkinter import BooleanVar
-from . import UiWidget
+from .ui_widget import UiWidget
 
 
 class Checkbox(UiWidget):
