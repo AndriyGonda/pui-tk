@@ -1,4 +1,4 @@
-from tkinter.ttk import Frame as _Frame
+from tkinter import Frame as _Frame
 from .ui_widget import UiWidget
 
 
