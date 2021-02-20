@@ -1,21 +1,22 @@
 from pui_tk import Application
 from pui_tk.widgets import Frame, Button, Radiobutton, Entry, LabeledEntry, Checkbox
+from pui_tk.widgets.layouts import Column, Row
 
 if __name__ == '__main__':
     app = Application()
     app.set_min_size(640, 480)
-    form1 = Frame(app)
-    form1.tk_ref.grid(row=0, column=0, sticky='nesw')
-    edit1 = Entry(form1, text='edit1')
-    btn1 = Button(form1, text='btn1')
-    rb1 = Radiobutton(form1, text='rb1')
-    cb1 = Checkbox(form1, text='cb1')
-    lbl_edit = LabeledEntry(form1)
-    lbl_edit.label.text = 'lbl_edit'
-    lbl_edit.entry.text = 'lbl_edit text'
-    btn1.tk_ref.grid(row=0, column=0)
-    edit1.tk_ref.grid(row=1, column=1)
-    rb1.tk_ref.grid(row=1, column=0)
-    cb1.tk_ref.grid(row=0, column=1)
-    lbl_edit.tk_ref.grid(row=2, column=1)
+    row = Row(app)
+    btn1 = Button(row, text='1')
+    btn2 = Button(row, text='2')
+    row.append(btn1)
+    row.append(btn2)
+
+    col = Column(row)
+    btn3 = Button(col, text='3')
+    btn4 = Button(col, text='4')
+    col.append(btn3)
+    col.append(btn4)
+
+    row.append(col)
+    row.tk_ref.pack(side='left', expand=True, fill='both')
     app.run()
