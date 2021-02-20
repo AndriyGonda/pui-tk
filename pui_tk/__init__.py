@@ -1,9 +1,16 @@
-from tkinter import Tk, Widget, Event
+from pathlib import Path
+import sys
+import os
+from tkinter import Widget, Event
 from .types import EventType
 from typing import Callable
 from tkinter.ttk import Style
+from ttkthemes import ThemedTk
+from tkinter import PhotoImage
 from _tkinter import TclError
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(BASE_DIR)
 
 
 class Application(object):
@@ -13,13 +20,20 @@ class Application(object):
     """
 
     def __init__(self, title='Application'):
-        self.tk_ref: Tk = Tk()
+        self.tk_ref: ThemedTk = ThemedTk(theme='breeze', fonts=True, themebg=True)
+        self.themes = self.tk_ref.themes
+        self.set_theme = self.tk_ref.set_theme
         self.title = title
         self.style = Style()
         try:
-            self.style.theme_use('clam')
+            path = Path(BASE_DIR) / Path('icons') / Path('default.png')
+            self.set_icon_photo(path)
         except TclError:
-            self.style.theme_use('default')
+            pass
+
+    def set_icon_photo(self, path):
+        self.tk_ref.iconphoto(False, PhotoImage(file=path))
+
 
     @property
     def title(self) -> str:
