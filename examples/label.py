@@ -6,9 +6,16 @@ from pui_tk.types import Cursor, Relief, Justify
 
 def label_cursors(base) -> Grid:
     row = Grid(base)
+    row_count = 0
+    col_count = 0
     for index, cursor_type in enumerate(Cursor):
+        if index % 10 == 0:
+            row_count += 1
+            col_count = 0
+        col_count += 1
         label = Label(row, text=str(cursor_type.value), cursor=cursor_type, bg_color=f'#aaa')
-        row.add(0, index, label, margin_x=5)
+        row.add(row_count, col_count, label, margin_x=5, margin_y=5)
+
     return row
 
 
