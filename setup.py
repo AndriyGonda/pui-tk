@@ -17,7 +17,11 @@ setup(
             "count_commits_from_version_file": False
         },
     setup_requires=['setuptools-git-versioning'],
-    packages=find_packages(include=['pui_tk', 'pui_tk.widgets']),
+    packages=find_packages(
+        include=['pui_tk',
+                 'pui_tk.widgets',
+                 'pui_tk.widgets.layouts']
+    ),
     description='Python UI library based on Tkinter',
     author='A.Honda',
     author_email='andriy.gonda@gmail.com',
