@@ -75,3 +75,18 @@ class Justify(StrEnum):
     LEFT = 'left'
     CENTER = 'center'
     RIGHT = 'right'
+
+
+@unique
+class Side(StrEnum):
+    TOP = 'top'
+    BOTTOM = 'bottom'
+    LEFT = 'left'
+    RIGHT = 'right'
+
+
+@unique
+class State(StrEnum):
+    ACTIVE = 'active'
+    NORMAL = 'normal'
+    DISABLED = 'disabled'
