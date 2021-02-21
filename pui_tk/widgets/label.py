@@ -22,8 +22,8 @@ class Label(UiWidget):
     padx = TkProperty('padx', int)  # extra spaces added to the left and right
     pady = TkProperty('pady', int)  # extra spaces added to the top and bottom
 
-    def __init__(self, base_widget, **kwargs):
-        super().__init__(base_widget, **kwargs)
+    def __init__(self, base_widget, *args, **kwargs):
+        super().__init__(base_widget, *args, **kwargs)
         self._text_var = StringVar()
 
     @property
