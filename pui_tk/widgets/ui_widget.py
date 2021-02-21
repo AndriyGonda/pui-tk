@@ -9,7 +9,9 @@ class UiWidget(object):
 
     def __init__(self, base_widget, *args, **kwargs):
         if isinstance(base_widget, Application) or isinstance(base_widget, UiWidget):
-            self.tk_ref = self.widget_class(base_widget.tk_ref, *args, **kwargs)
+            self.tk_ref = self.widget_class(base_widget.tk_ref, *args)
+            for key, value in kwargs.items():
+                setattr(self, key, value)
         else:
             raise TypeError(f'{type(base_widget)} is not Application or UiWidget')
         self.parent = base_widget
@@ -21,6 +23,7 @@ class UiWidget(object):
         :param callback: function (widget, event)
         """
         self.tk_ref.bind(event_type, lambda event: callback(self, event))
+        return callback
 
     def event(self, event_type):
         """
@@ -28,5 +31,5 @@ class UiWidget(object):
         :param event_type: EventType or str
         """
         def _decorator(callback):
-            self.bind_event(event_type, callback)
+            return self.bind_event(event_type, callback)
         return _decorator
