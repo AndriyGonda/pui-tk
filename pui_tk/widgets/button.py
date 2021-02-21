@@ -1,17 +1,13 @@
 from tkinter.ttk import Button as _Button
 from .ui_widget import UiWidget
+from pui_tk.types import TkProperty, Cursor, Side
 
 
 class Button(UiWidget):
     widget_class = _Button
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-    @property
-    def text(self):
-        return self.tk_ref['text']
-
-    @text.setter
-    def text(self, title: str):
-        self.tk_ref['text'] = title
+    text = TkProperty('text', str)
+    style = TkProperty('style', str)
+    cursor = TkProperty('cursor', (Cursor, str))
+    image = TkProperty('image')
+    underline = TkProperty('underline', int)
+    compound = TkProperty('compound', (Side, str))

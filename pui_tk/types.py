@@ -83,3 +83,10 @@ class Side(StrEnum):
     BOTTOM = 'bottom'
     LEFT = 'left'
     RIGHT = 'right'
+
+
+@unique
+class State(StrEnum):
+    ACTIVE = 'active'
+    NORMAL = 'normal'
+    DISABLED = 'disabled'

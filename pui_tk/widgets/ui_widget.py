@@ -1,11 +1,12 @@
 from typing import Callable
 from pui_tk import Application
 from tkinter import Event, Widget
-from pui_tk.types import EventType
+from pui_tk.types import EventType, State, TkProperty
 
 
 class UiWidget(object):
     widget_class = Widget
+    state = TkProperty('state', (State, str))
 
     def __init__(self, base_widget, *args, **kwargs):
         if isinstance(base_widget, Application) or isinstance(base_widget, UiWidget):
