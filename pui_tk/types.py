@@ -75,3 +75,11 @@ class Justify(StrEnum):
     LEFT = 'left'
     CENTER = 'center'
     RIGHT = 'right'
+
+
+@unique
+class Side(StrEnum):
+    TOP = 'top'
+    BOTTOM = 'bottom'
+    LEFT = 'left'
+    RIGHT = 'right'
