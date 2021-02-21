@@ -1,10 +1,12 @@
 from tkinter.ttk import Entry as _Entry
 from tkinter import StringVar
 from .ui_widget import UiWidget
+from pui_tk.types import TkProperty
 
 
 class Entry(UiWidget):
     widget_class = _Entry
+    font = TkProperty('font')
 
     def __init__(self, *args, **kwargs):
         self._string_var = StringVar()
