@@ -15,6 +15,7 @@ class UiWidget(object):
                 setattr(self, key, value)
         else:
             raise TypeError(f'{type(base_widget)} is not Application or UiWidget')
+        self.configure = self.tk_ref.configure
         self.parent = base_widget
 
     def bind_event(self, event_type: EventType or str, callback: Callable[[Widget, Event], None]):
