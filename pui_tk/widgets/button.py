@@ -8,6 +8,6 @@ class Button(UiWidget):
     text = TkProperty('text', str)
     style = TkProperty('style', str)
     cursor = TkProperty('cursor', (Cursor, str))
-    image = TkProperty('image')
+    image = TkProperty('image', str)
     underline = TkProperty('underline', int)
     compound = TkProperty('compound', (Side, str))
