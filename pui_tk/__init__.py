@@ -29,6 +29,7 @@ class Application(object):
             self.set_icon_photo(path)
         except TclError:
             pass
+        self.set_min_size(500, 500)
 
     def set_icon_photo(self, path):
         self.tk_ref.iconphoto(False, PhotoImage(file=path))
@@ -224,3 +225,15 @@ class Application(object):
         Run application mainloop
         """
         self.tk_ref.mainloop()
+
+    @staticmethod
+    def place(widget, *args, **kwargs):
+        widget.tk_ref.place(*args, **kwargs)
+
+    @staticmethod
+    def pack(widget, *args, **kwargs):
+        widget.tk_ref.pack(*args, **kwargs)
+
+    @staticmethod
+    def grid(widget, *args, **kwargs):
+        widget.tk_ref.grid(*args, **kwargs)
