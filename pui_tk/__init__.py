@@ -4,7 +4,6 @@ import os
 from tkinter import Widget, Event
 from .types import EventType
 from typing import Callable
-from tkinter.ttk import Style
 from ttkthemes import ThemedTk
 from tkinter import PhotoImage
 from _tkinter import TclError
@@ -24,7 +23,7 @@ class Application(object):
         self.themes = self.tk_ref.themes
         self.set_theme = self.tk_ref.set_theme
         self.title = title
-        self.style = Style()
+        self.quit = self.tk_ref.quit
         try:
             path = Path(BASE_DIR) / Path('icons') / Path('default.png')
             self.set_icon_photo(path)
@@ -33,7 +32,6 @@ class Application(object):
 
     def set_icon_photo(self, path):
         self.tk_ref.iconphoto(False, PhotoImage(file=path))
-
 
     @property
     def title(self) -> str:
@@ -208,7 +206,7 @@ class Application(object):
         :param event_type: EventType or str
         :param callback: function (widget, event)
         """
-        self.tk_ref.bind(event_type, lambda event: callback(self, event))
+        return self.tk_ref.bind(event_type, lambda event: callback(self, event))
 
     def event(self, event_type):
         """
@@ -217,7 +215,7 @@ class Application(object):
         """
 
         def _decorator(callback):
-            self.bind_event(event_type, callback)
+            return self.bind_event(event_type, callback)
 
         return _decorator
 
