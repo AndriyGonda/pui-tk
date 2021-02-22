@@ -7,9 +7,8 @@ from pui_tk.widgets.entry import Entry
 from pui_tk.widgets.label import Label
 from pui_tk.widgets.labeled_entry import LabeledEntry
 from pui_tk.widgets.chart import Chart
-app = Application()
 from math import sin
-
+app = Application()
 
 if __name__ == '__main__':
     app.height = 400
